@@ -1,15 +1,14 @@
 import { useState } from "react"
 
-export default function TodoItem({num, complete, task}){
-    const [done, setDone] = useState(complete);
-    
+export default function TodoItem({complete, task, date, onTodoClick}){
+    //const [done, setDone] = useState(complete);
+    //console.log(task + " Renrndering ");
     function handleClick(){
-        
-        console.log(task + " before" +done);
-        setDone(!done);
-        console.log(task + " after " +done);
+
+        onTodoClick(date);
     }
-    if(!done){
+    
+    if(!complete){
         return <>
             <div className="task">
                 <div className="todo" onClick={handleClick}>
