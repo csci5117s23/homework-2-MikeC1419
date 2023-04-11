@@ -84,6 +84,7 @@
   font-size: 50px;
   font-weight: bold;
   background-color: var(--background);
+  border: white 4px solid;
 }
 .centersmall{
   display: flex;
@@ -94,6 +95,7 @@
   font-size: 20px;
   font-weight: bold;
   background-color: var(--background);
+  border: white 4px solid;
 }
 .but{
   margin-left: 10px;
@@ -224,6 +226,10 @@
 
   .center {
     padding: 8rem 0 6rem;
+    font-size: 30px;
+  }
+  .centersmall {
+    font-size: 10px;
   }
 
   .center::before {

@@ -7,28 +7,7 @@ import { useEffect, useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const API_ENDPOINT = "https://backend-q6v7.api.codehooks.io/dev/flashCard/";
-  const API_KEY = "a000c16e-5ea8-4400-a25e-8a15f826ccb7";
 
-  const [posts, setPosts] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(API_ENDPOINT, {
-        'method':'GET',
-        'headers': {'x-apikey': API_KEY}
-      })
-      const data = await response.json()
-      // update state -- configured earlier.
-      setPosts(data);
-      setLoading(false);
-    }
-    fetchData();
-  }, [])
-  if(loading){
-    return (<span>loading...</span>)
-  }
   return (
     <>
       <Head>
@@ -36,9 +15,6 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div className={styles.description}>
-          <p>
-          {posts[0].createdOn}
-          </p>
         </div>
 
         <div className={styles.center}>
