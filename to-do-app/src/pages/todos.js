@@ -14,6 +14,7 @@ export default function Home(){
     const [loading, setLoading] = useState(true);
     const [authFail, setAuthFail] = useState(false);
     const todoTask = useRef();
+    const todoCat = useRef();
     //const router = useRouter();
     const API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT;
     //const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
@@ -148,7 +149,12 @@ export default function Home(){
         if(todoTask.current.value == ""){
             return;
         }
+
         let task = todoTask.current.value;
+        let cat = todoCat.current.value;
+        if (cat == ""){
+            cat = "misc";
+        }
         const fetchData = async () => {
             const token = await test();
             const response = await fetch(API_ENDPOINT, {
@@ -157,7 +163,7 @@ export default function Home(){
                 'Authorization': 'Bearer ' + token,
                 'Content-Type': 'application/json'
                 },
-              'body':JSON.stringify({"task": task,"description": token,"category": "sport", "complete": false})
+              'body':JSON.stringify({"task": task,"description": token,"category": cat, "complete": false})
 
             })
             const data = await response.json()
@@ -216,7 +222,13 @@ export default function Home(){
         })}
         <h3>Add New Task</h3>
         <label for="taskinput">Task:</label>
+        <br></br>
         <input ref={todoTask} type="text" id="taskinput" required></input>
+         <br></br>
+        <label for="taskinput">Optional Category:</label>
+        <br></br>
+        <input ref={todoCat} type="text" id="taskinput" required></input>
+        <br></br>
         <button onClick={createTodo} onSubmit={createTodo}>ADD TASK</button>
         <br></br>
         <br></br>

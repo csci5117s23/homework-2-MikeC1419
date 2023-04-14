@@ -13,7 +13,8 @@ export default function categoryTodos({oneTodo}) {
     const router = useRouter()
     const { isLoaded, userId, sessionId, getToken } = useAuth();
     const [todos, setTodos] = useState([])
-    let value = router.asPath.split("/")[2]
+    
+    
 
     function completeTask(created){
         let copy = [];
@@ -46,10 +47,10 @@ export default function categoryTodos({oneTodo}) {
         
         todosFromStorage = data;
         todosFromStorage = todosFromStorage.reverse()
-        console.log(todosFromStorage)
+        //console.log(todosFromStorage + "   "+value)
         function func(item){
-            //console.log(item.category+" "+ router.asPath.split("/")[2])
-            return item.category ==value;
+            console.log("what the heckt "+ router.asPath)
+            return item.category ==router.asPath;
         }
                 //console.log("LENGTH "+  + " "+todosFromStorage.length);
         todosFromStorage =todosFromStorage.filter(func);
@@ -68,6 +69,7 @@ export default function categoryTodos({oneTodo}) {
             return;
         }
         let task = todoTask.current.value;
+        
         const fetchData = async () => {
             const token = await  getToken({template: 'codehooks'});
             const response = await fetch(API_ENDPOINT, {
