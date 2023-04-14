@@ -1,6 +1,7 @@
 import TodoItem from "@/TodoItem";
 import Link from "next/link";
 import { useEffect, useState } from 'react'
+import {UserButton } from "@clerk/nextjs";
 
 export default function Home(){
     const API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT;
@@ -88,13 +89,17 @@ export default function Home(){
         
     }
     return <>
-        <h2>COMPLETED TASK LIST</h2>
+        <div className="background">
+            <div className="bar">
+             <h2 id="top">Completed Task List</h2>
+             <UserButton></UserButton>
+            </div>
        
         {todos.map(todo =>{
             return <TodoItem num={todo.num} complete={todo.complete} task={todo.task} date={todo.created} onTodoClick={completeTask}></TodoItem>
         })}
         <Link href="/todos" onClick={saveIncompleteTasks}>back to todo!</Link>
-        <div>hi</div>
+        </div>
     </>
         
     

@@ -1,23 +1,41 @@
 :root {
     --complete: #38afff;
     --background: #28ffbb;
-  }
+}
 .task{
-    border: black 2px solid;
     border-radius: 5px;
     margin:10px;
+    
+}
+.bar{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: rgb(174, 255, 232);
 }
 .todo{
+    border: black 2px solid;
+    border-radius: 5px;
     display: flex;
     cursor: pointer;
-    width: fit-content;
-    padding-right: 40px;
+    width: 95%;
+    padding-right: 0px;
+    background-color: white;
 
 }
 
 .label{
     margin-left: 15px;
     font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    white-space: nowrap; 
+    width: 90%; 
+    overflow:hidden;
+    text-overflow: ellipsis; 
 }
 .checkbox{
     background-color: white;
@@ -32,6 +50,11 @@
     border: black 2px solid;
     background-color: var(--complete);
 }
+
 .done-border{
     border: var(--complete) 2px solid;
+    border-radius: 5px;
+}
+.background{
+    background-color: #fff1d8;
 }

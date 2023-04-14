@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react'
 import TodoItem from "@/TodoItem";
 import Link from "next/link";
-import { useRouter } from 'next/router'
+
+
 
 export default function ToDoList({}){
     const [todos, setTodos] = useState([]);
     const [count, setCount] = useState(0);
 
-    const API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT;
-    const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+    //const API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT;
+    //const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+
     
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -44,11 +46,26 @@ export default function ToDoList({}){
                 }
             }
         }   
+        // if (userId) { // check if 1) logged in, and 2) auth is loaded properly in the first place
+        //     const token = await getToken({ template: "codehooks" }); // get the token
+    
+        //     const result = await fetch(backend_base+"/groups",{
+        //     'method':'GET',
+        //     'headers': {'Authorization': 'Bearer ' + authToken} // use the token.
+        //     })
+        //     ... use the request...    
+        //   }
+        
         const fetchData = async () => {
-            const response = await fetch(API_ENDPOINT, {
-              'method':'GET',
-              'headers': {'x-apikey': API_KEY}
-            })
+            // const response = await fetch(API_ENDPOINT, {
+            //   'method':'GET',
+            //   'headers': {'x-apikey': API_KEY}
+            // })
+            const token = await getToken({ template: "codehooks" }); // get the token
+            // const response = await fetch(API_ENDPOINT, {
+            //     'method':'GET',
+            //     'headers': {'Authorization': 'Bearer ' + authToken} // use the token.
+            // })
             const data = await response.json()
             todosFromStorage = data;
             todosFromStorage = todosFromStorage.reverse()
@@ -157,8 +174,7 @@ export default function ToDoList({}){
         <input type="text"></input>
         <button onClick={createTodo}>ADD TASK</button>
         <br></br>
-        <div onClick={saveCompleteTasks}>VIEW COMPLETED TASKS</div>
-        <br></br>
+        
         <Link href="/done" onClick={saveCompleteTasks}>VIEW COMPLETED TASKS!</Link>
 
     </>
