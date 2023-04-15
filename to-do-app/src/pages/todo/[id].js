@@ -53,7 +53,6 @@ export default function SingleTodo({oneTodo}) {
      </div>
     <h2>{oneTodo.task}</h2>
     <div> 
-        <h3>{oneTodo.description}</h3>
         <div>Created On: {oneTodo.createdOn}</div>
         <div>Completed: {oneTodo.complete.toString()}</div>
     </div>
