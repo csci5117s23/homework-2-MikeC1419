@@ -7,14 +7,14 @@ Please fill out all of the following sections to help us grade your submission:
 
 ## Student (to be completed individually)
 
-* First Last, x500@umn.edu
+* Mike Cao , cao000121@umn.edu
 
 ## Link to Site
 
-<https://TODO.com/>
+https://6439bc5a31c9534793fac350--visionary-mooncake-3c68db.netlify.app/
 
 ## Challenge Task
 
-* I started the challenge task: [yes/no]
-* I completed the challenge task: [yes/no]
+* I started the challenge task: yes
+* I completed the challenge task: no
 
