@@ -21,3 +21,4 @@ https://6439bc5a31c9534793fac350--visionary-mooncake-3c68db.netlify.app/
 ## MISC notes
 For some reason the Id page is giving 404 on the hosted site but this image shows that the page exists
 <img width="746" alt="image" src="https://user-images.githubusercontent.com/51382283/232267755-98b53884-8bd7-4fce-ac4c-e8c506eade96.png">
+<img width="723" alt="image" src="https://user-images.githubusercontent.com/51382283/232269615-91b9e3fe-448c-4a3c-9c52-c504fb796903.png">
